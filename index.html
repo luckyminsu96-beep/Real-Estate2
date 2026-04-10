@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thai Home</title>
+    <!-- Use similar font as DDProperty -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <header class="navbar">
+        <div class="logo">
+            <i class="fa-solid fa-house-chimney icon-red"></i>
+            <span>Thai Home</span>
+        </div>
+        <nav class="nav-links">
+            <a href="#">Buy <i class="fa-solid fa-chevron-down arrow"></i></a>
+            <a href="#">Rent <i class="fa-solid fa-chevron-down arrow"></i></a>
+            <a href="#">New Projects <i class="fa-solid fa-chevron-down arrow"></i></a>
+            <a href="#">Guides</a>
+            <a href="#">More <i class="fa-solid fa-chevron-down arrow"></i></a>
+        </nav>
+        <div class="nav-right">
+            <!-- Removed Install App as requested -->
+            <div class="lang-selector">
+                EN <i class="fa-solid fa-chevron-down arrow"></i>
+            </div>
+            <div class="bell-icon">
+                <i class="fa-regular fa-bell"></i>
+            </div>
+            <button class="btn-login">Login</button>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-content">
+            <div class="hero-centered-layout">
+                <h1 class="hero-title">First to know.<br>First to choose.</h1>
+
+                <div class="search-container">
+                    <div class="search-tabs">
+                        <button class="tab active">Buy</button>
+                        <button class="tab">Rent</button>
+                    </div>
+
+                    <div class="search-box">
+                        <div class="search-input-wrapper">
+                            <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                            <input type="text" placeholder="Search BTS or MRTs like Chit Lom">
+                        </div>
+                        <button class="btn-search"><i class="fa-solid fa-magnifying-glass"></i> Search</button>
+                    </div>
+
+                    <div class="search-filters">
+                        <button class="filter-btn"><i class="fa-regular fa-building"></i> All Residential</button>
+                        <button class="filter-btn"><i class="fa-solid fa-dollar-sign"></i> Price</button>
+                        <button class="filter-btn"><i class="fa-solid fa-bed"></i> Bedroom</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Properties section "Ready to move in" -->
+    <section class="properties-section">
+        <h2 class="section-title">Ready to move in</h2>
+        <div class="property-grid">
+            <div class="property-card">
+                <div class="card-img-wrapper">
+                    <img src="images/condo_interior.png" alt="Bangkok Condo">
+                </div>
+                <div class="card-body">
+                    <div class="card-location">Bangkok, Thailand</div>
+                    <div class="card-feature">Modern Condo • 1 Bedroom</div>
+                    <div class="card-dates">Available from: April 15, 2026</div>
+                    <div class="card-dates">Min Rent: 1 year</div>
+                    <div class="card-price"><span class="price">฿25,000</span> / month</div>
+                    <button class="btn-contact" style="width: 100%; border-radius: 8px; margin-top: 1rem;">Contact Owner</button>
+                </div>
+            </div>
+            
+            <div class="property-card">
+                <div class="card-img-wrapper">
+                    <img src="images/studio_room.png" alt="Pattaya Studio">
+                </div>
+                <div class="card-body">
+                    <div class="card-location">Pattaya, Thailand</div>
+                    <div class="card-feature">Cozy Studio • Seaside View</div>
+                    <div class="card-dates">Available from: May 1, 2026</div>
+                    <div class="card-dates">Min Rent: 6 months</div>
+                    <div class="card-price"><span class="price">฿15,000</span> / month</div>
+                    <button class="btn-contact" style="width: 100%; border-radius: 8px; margin-top: 1rem;">Contact Owner</button>
+                </div>
+            </div>
+
+            <div class="property-card">
+                <div class="card-img-wrapper">
+                    <img src="images/condo_interior.png" alt="Phuket Villa">
+                </div>
+                <div class="card-body">
+                    <div class="card-location">Phuket, Thailand</div>
+                    <div class="card-feature">Luxury Villa • Private Pool</div>
+                    <div class="card-dates">Available from: May 10, 2026</div>
+                    <div class="card-dates">Min Rent: 1 year</div>
+                    <div class="card-price"><span class="price">฿45,000</span> / month</div>
+                    <button class="btn-contact" style="width: 100%; border-radius: 8px; margin-top: 1rem;">Contact Owner</button>
+                </div>
+            </div>
+
+            <div class="property-card">
+                <div class="card-img-wrapper">
+                    <img src="images/studio_room.png" alt="Chiang Mai Apartment">
+                </div>
+                <div class="card-body">
+                    <div class="card-location">Chiang Mai, Thailand</div>
+                    <div class="card-feature">Mountain View • 2 Bedroom</div>
+                    <div class="card-dates">Available from: June 1, 2026</div>
+                    <div class="card-dates">Min Rent: 3 months</div>
+                    <div class="card-price"><span class="price">฿20,000</span> / month</div>
+                    <button class="btn-contact" style="width: 100%; border-radius: 8px; margin-top: 1rem;">Contact Owner</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tenant Section "Looking for home" -->
+    <section class="tenant-section">
+        <h2 class="section-title">Looking for home <span class="badge">Real-time</span></h2>
+        <div class="tenant-grid">
+            <div class="tenant-card">
+                <div class="tenant-img-wrapper">
+                    <img src="C:/Users/Lenovo/.gemini/antigravity/brain/6cac7b33-9372-4d6e-ac05-a8d60679e789/avatar_man_1_1775789705993.png" alt="Looking for Condo">
+                </div>
+                <div class="tenant-body">
+                    <div class="tenant-header">Looking for a place in Bangkok</div>
+                    <div class="tenant-detail"><i class="fa-regular fa-calendar"></i> <strong>Move in:</strong> May 1st, 2026</div>
+                    <div class="tenant-detail"><i class="fa-solid fa-wallet"></i> <strong>Budget:</strong> ฿30,000/mo</div>
+                    <div class="tenant-detail"><i class="fa-solid fa-bed"></i> <strong>Room Type:</strong> 1-2 Bedrooms</div>
+                    <div class="tenant-detail"><i class="fa-solid fa-location-dot"></i> <strong>Location:</strong> Sukhumvit</div>
+                    <button class="btn-contact">Contact Tenant</button>
+                </div>
+            </div>
+            
+            <div class="tenant-card">
+                <div class="tenant-img-wrapper">
+                    <img src="C:/Users/Lenovo/.gemini/antigravity/brain/6cac7b33-9372-4d6e-ac05-a8d60679e789/avatar_woman_1_1775789718664.png" alt="Looking for Studio">
+                </div>
+                <div class="tenant-body">
+                    <div class="tenant-header">Need a studio near BTS</div>
+                    <div class="tenant-detail"><i class="fa-regular fa-calendar"></i> <strong>Move in:</strong> ASAP</div>
+                    <div class="tenant-detail"><i class="fa-solid fa-wallet"></i> <strong>Budget:</strong> ฿15,000/mo</div>
+                    <div class="tenant-detail"><i class="fa-solid fa-bed"></i> <strong>Room Type:</strong> Studio</div>
+                    <div class="tenant-detail"><i class="fa-solid fa-location-dot"></i> <strong>Location:</strong> Asok / Phrom Phong</div>
+                    <button class="btn-contact">Contact Tenant</button>
+                </div>
+            </div>
+
+            <div class="tenant-card">
+                <div class="tenant-img-wrapper">
+                    <img src="C:/Users/Lenovo/.gemini/antigravity/brain/6cac7b33-9372-4d6e-ac05-a8d60679e789/avatar_man_2_1775789734767.png" alt="Looking for Villa">
+                </div>
+                <div class="tenant-body">
+                    <div class="tenant-header">Relocating to Phuket</div>
+                    <div class="tenant-detail"><i class="fa-regular fa-calendar"></i> <strong>Move in:</strong> June 15th, 2026</div>
+                    <div class="tenant-detail"><i class="fa-solid fa-wallet"></i> <strong>Budget:</strong> ฿50,000/mo</div>
+                    <div class="tenant-detail"><i class="fa-solid fa-bed"></i> <strong>Room Type:</strong> Villa, 2+ Beds</div>
+                    <div class="tenant-detail"><i class="fa-solid fa-location-dot"></i> <strong>Location:</strong> Rawai / Nai Harn</div>
+                    <button class="btn-contact">Contact Tenant</button>
+                </div>
+            </div>
+
+            <div class="tenant-card">
+                <div class="tenant-img-wrapper">
+                    <img src="C:/Users/Lenovo/.gemini/antigravity/brain/6cac7b33-9372-4d6e-ac05-a8d60679e789/avatar_woman_2_1775789749922.png" alt="Looking for Condo">
+                </div>
+                <div class="tenant-body">
+                    <div class="tenant-header">Quiet apartment in Chiang Mai</div>
+                    <div class="tenant-detail"><i class="fa-regular fa-calendar"></i> <strong>Move in:</strong> July 1st, 2026</div>
+                    <div class="tenant-detail"><i class="fa-solid fa-wallet"></i> <strong>Budget:</strong> ฿12,000/mo</div>
+                    <div class="tenant-detail"><i class="fa-solid fa-bed"></i> <strong>Room Type:</strong> 1 Bedroom</div>
+                    <div class="tenant-detail"><i class="fa-solid fa-location-dot"></i> <strong>Location:</strong> Nimman / Santitham</div>
+                    <button class="btn-contact">Contact Tenant</button>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>
