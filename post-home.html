@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post Property - Connect Thai Home</title>
+    <!-- Use similar font as DDProperty -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .post-page-container {
+            max-width: 850px;
+            margin: 3rem auto;
+            padding: 0 1rem;
+        }
+        
+        .map-container {
+            margin-top: 0.8rem;
+            width: 100%;
+            height: 250px;
+            background-color: #eee;
+            border-radius: 8px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .map-search {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            right: 10px;
+            background: white;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            z-index: 10;
+        }
+        
+        .map-search input {
+            border: none;
+            width: 100%;
+            outline: none;
+            font-size: 0.95rem;
+        }
+        
+        .map-pin {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -100%);
+            color: var(--primary-red);
+            font-size: 2rem;
+            z-index: 5;
+            filter: drop-shadow(0 4px 4px rgba(0,0,0,0.3));
+        }
+    </style>
+</head>
+<body style="background-color: var(--bg-light);">
+    <header class="navbar">
+        <div class="logo">
+            <a href="index.html" style="text-decoration: none; color: inherit; display: flex; align-items: center; gap: 8px;">
+                <i class="fa-solid fa-house-chimney icon-red"></i>
+                <span>Connect Thai Home</span>
+            </a>
+        </div>
+        <nav class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="#">Buy <i class="fa-solid fa-chevron-down arrow"></i></a>
+            <a href="#">Rent <i class="fa-solid fa-chevron-down arrow"></i></a>
+            <a href="#">New Projects <i class="fa-solid fa-chevron-down arrow"></i></a>
+            <a href="#">Guides</a>
+        </nav>
+        <div class="nav-right">
+            <div class="lang-selector">
+                EN <i class="fa-solid fa-chevron-down arrow"></i>
+            </div>
+            <div class="bell-icon">
+                <i class="fa-regular fa-bell"></i>
+            </div>
+            <button class="btn-login">Login</button>
+        </div>
+    </header>
+
+    <div class="post-page-container">
+        <h1 style="margin-bottom: 1.5rem; font-size: 2.2rem; color: var(--text-dark); text-align: center; font-weight: 700;">Post your property</h1>
+        
+        <form class="post-form">
+            <!-- Card 1: Photos -->
+            <div class="form-section-card">
+                <h3 style="margin-bottom: 1.5rem; font-size: 1.3rem; color: var(--text-dark); border-bottom: 2px solid #f1f5f9; padding-bottom: 0.8rem;">1. Photos</h3>
+                <div class="form-group full-width">
+                    <div class="upload-area">
+                        <i class="fa-solid fa-cloud-arrow-up" style="color: #94a3b8;"></i>
+                        <p style="font-size: 1.1rem; font-weight: 500; color: #334155; margin-top: 10px;">Click and drag images to upload</p>
+                        <p style="font-size: 0.9rem; color: #64748b; margin-top: 6px;">Maximum 20 pictures</p>
+                        <input type="file" multiple accept="image/*" class="file-input">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 2: Location -->
+            <div class="form-section-card">
+                <h3 style="margin-bottom: 1.5rem; font-size: 1.3rem; color: var(--text-dark); border-bottom: 2px solid #f1f5f9; padding-bottom: 0.8rem;">2. Location (Search & Pin)</h3>
+                <div class="map-wrapper" style="border: 2px solid #e2e8f0; border-radius: 12px; overflow: hidden; padding: 15px; background: #f7fafc;">
+                    <div style="display: flex; gap: 10px; margin-bottom: 12px;">
+                        <div style="flex: 1; position: relative;">
+                            <i class="fa-solid fa-magnifying-glass" style="position: absolute; left: 15px; top: 15px; color: #888; font-size: 1rem;"></i>
+                            <input type="text" id="mapSearchInput" autocomplete="off" placeholder="Search Google Maps (e.g., Siri at Sukhumvit)" style="width: 100%; padding: 12px 15px 12px 42px; border: 2px solid #cbd5e1; border-radius: 8px; outline: none; font-size: 1rem; background: white; transition: border-color 0.2s;">
+                            <ul id="searchSuggestions" class="search-suggestions" style="display: none;"></ul>
+                        </div>
+                        <button type="button" onclick="searchLocation()" style="background: #334155; color: white; border: none; border-radius: 8px; padding: 0 1.8rem; font-weight: 600; font-size: 1rem; cursor: pointer; transition: background 0.2s;" onmouseover="this.style.background='#1e293b'" onmouseout="this.style.background='#334155'">Search</button>
+                    </div>
+                    
+                    <div class="map-container" style="position: relative; height: 350px; border-radius: 8px; overflow: hidden; margin-top: 0; box-shadow: inset 0 2px 4px rgba(0,0,0,0.05); transition: opacity 0.3s;">
+                        <!-- Dynamic iframe representing map -->
+                        <iframe id="gmap-iframe" src="https://maps.google.com/maps?q=Bangkok&output=embed" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                        <!-- Red pin centered to mimic pin drop state -->
+                        <i class="fa-solid fa-location-dot map-pin" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -100%); color: var(--primary-red); font-size: 3rem; filter: drop-shadow(0 4px 6px rgba(0,0,0,0.4)); pointer-events: none;"></i>
+                        
+                        <!-- Toast Notification popup -->
+                        <div id="mapToast" style="display: none; justify-content: center; align-items: center; gap: 8px; position: absolute; top: 20px; left: 50%; transform: translateX(-50%); background: rgba(22, 163, 74, 0.95); color: white; padding: 0.8rem 1.5rem; border-radius: 30px; font-weight: 600; font-size: 0.95rem; z-index: 20; box-shadow: 0 4px 15px rgba(0,0,0,0.2); transition: opacity 0.3s; opacity: 0;">
+                            <i class="fa-solid fa-circle-check"></i> Successfully Saved Location
+                        </div>
+                    </div>
+                    
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 15px;">
+                        <span style="font-size: 0.95rem; color: #475569; font-weight: 500;"><i class="fa-solid fa-circle-info" style="margin-right: 6px; color: var(--primary-red);"></i> Drag the map to place the pin precisely.</span>
+                        <button type="button" id="btnSaveLocation" onclick="toggleMapSave()" style="background-color: var(--primary-red); color: white; border: none; padding: 0.8rem 1.8rem; border-radius: 8px; font-weight: 600; font-size: 1rem; cursor: pointer; transition: all 0.2s; box-shadow: 0 4px 12px rgba(211, 34, 42, 0.2);">
+                            Save Location
+                        </button>
+                    </div>
+                </div>
+                
+                <script>
+                    let isMapSaved = false;
+                    let toastTimeout;
+                    
+                    function toggleMapSave() {
+                        const btn = document.getElementById('btnSaveLocation');
+                        const iframe = document.getElementById('gmap-iframe');
+                        const mapContainer = document.querySelector('.map-container');
+                        const toast = document.getElementById('mapToast');
+                        
+                        if(toastTimeout) clearTimeout(toastTimeout);
+                        
+                        if (!isMapSaved) {
+                            // Lock and Save
+                            isMapSaved = true;
+                            iframe.style.pointerEvents = 'none'; // Lock map interaction
+                            mapContainer.style.opacity = '0.9'; // Visual feedback
+                            btn.innerHTML = '<i class="fa-solid fa-pen" style="margin-right:8px;"></i> Edit Location';
+                            btn.style.backgroundColor = '#64748b'; // Gray tone
+                            btn.style.boxShadow = 'none';
+                            
+                            // Show toast
+                            toast.style.display = 'flex';
+                            setTimeout(() => { toast.style.opacity = '1'; }, 10);
+                            
+                            // Hide after ~2.5 seconds
+                            toastTimeout = setTimeout(() => {
+                                toast.style.opacity = '0';
+                                setTimeout(() => { toast.style.display = 'none'; }, 300);
+                            }, 2500);
+                        } else {
+                            // Unlock to edit
+                            isMapSaved = false;
+                            iframe.style.pointerEvents = 'auto'; // Unlock map
+                            mapContainer.style.opacity = '1';
+                            btn.innerHTML = 'Save Location';
+                            btn.style.backgroundColor = 'var(--primary-red)';
+                            btn.style.boxShadow = '0 4px 12px rgba(211, 34, 42, 0.2)';
+                            
+                            toast.style.opacity = '0';
+                            toast.style.display = 'none';
+                        }
+                    }
+
+                    const mockLocations = [
+                        "Siri at Sukhumvit", 
+                        "Ashton Asoke", 
+                        "Ideo Q Chula-Samyan", 
+                        "Lumpini Suite Phetchaburi-Makkasan", 
+                        "The Line Jatujak-Mochit", 
+                        "Siam Paragon", 
+                        "Central World"
+                    ];
+                    
+                    const searchInput = document.getElementById('mapSearchInput');
+                    const suggestionsBox = document.getElementById('searchSuggestions');
+                    
+                    searchInput.addEventListener('input', function() {
+                        const val = this.value.toLowerCase();
+                        suggestionsBox.innerHTML = '';
+                        if (!val) {
+                            suggestionsBox.style.display = 'none';
+                            return;
+                        }
+                        
+                        const filtered = mockLocations.filter(loc => loc.toLowerCase().includes(val));
+                        if(filtered.length > 0) {
+                            suggestionsBox.style.display = 'block';
+                            filtered.forEach(loc => {
+                                const li = document.createElement('li');
+                                li.innerHTML = `<i class="fa-solid fa-location-dot" style="color: #cbd5e1;"></i> ${loc}`;
+                                li.onclick = function() {
+                                    searchInput.value = loc;
+                                    suggestionsBox.style.display = 'none';
+                                    searchLocation(loc); // Auto search on click
+                                };
+                                suggestionsBox.appendChild(li);
+                            });
+                        } else {
+                            suggestionsBox.style.display = 'none';
+                        }
+                    });
+                    
+                    // Hide suggestions on outside click
+                    document.addEventListener('click', function(e) {
+                        if(e.target !== searchInput) {
+                            suggestionsBox.style.display = 'none';
+                        }
+                    });
+
+                    function searchLocation(queryStr = null) {
+                        const query = queryStr || searchInput.value;
+                        if(query.trim() !== '') {
+                            const encodedQuery = encodeURIComponent(query);
+                            document.getElementById('gmap-iframe').src = `https://maps.google.com/maps?q=${encodedQuery}&output=embed`;
+                        } else {
+                            alert("Please enter a location to search!");
+                        }
+                    }
+                    
+                    // Handle Enter key for map search
+                    searchInput.addEventListener('keypress', function (e) {
+                        if (e.key === 'Enter') {
+                            e.preventDefault();
+                            searchLocation();
+                            suggestionsBox.style.display = 'none';
+                        }
+                    });
+                </script>
+            </div>
+
+            <!-- Card 3: Property Details -->
+            <div class="form-section-card">
+                <h3 style="margin-bottom: 1.5rem; font-size: 1.3rem; color: var(--text-dark); border-bottom: 2px solid #f1f5f9; padding-bottom: 0.8rem;">3. Property Details</h3>
+                <div class="form-row" style="margin-bottom: 1.2rem;">
+                    <div class="form-group">
+                        <label>Property Type</label>
+                        <select>
+                            <option>Condo</option>
+                            <option>House</option>
+                            <option>Villa</option>
+                            <option>Apartment</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Room Type</label>
+                        <select>
+                            <option>Studio</option>
+                            <option>1 Bedroom</option>
+                            <option>2 Bedrooms</option>
+                            <option>3+ Bedrooms</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-row" style="margin-bottom: 1.2rem;">
+                    <div class="form-group">
+                        <label>Move-in Date</label>
+                        <input type="date">
+                    </div>
+                    <div class="form-group">
+                        <label>Minimum Rent Period</label>
+                        <select>
+                            <option>1 Month</option>
+                            <option>3 Months</option>
+                            <option>6 Months</option>
+                            <option selected>1 Year</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Pet Friendly</label>
+                        <select>
+                            <option>No</option>
+                            <option>Yes (Small Pets)</option>
+                            <option>Yes (Any)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Monthly Rent (THB)</label>
+                        <input type="number" placeholder="e.g. 15000" style="font-weight: 500; color: var(--primary-red);">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 4: Contact Details -->
+            <div class="form-section-card">
+                <h3 style="margin-bottom: 1.5rem; font-size: 1.3rem; color: var(--text-dark); border-bottom: 2px solid #f1f5f9; padding-bottom: 0.8rem;">4. Contact Information</h3>
+                
+                <div class="form-row" style="margin-bottom: 1.2rem;">
+                    <div class="form-group">
+                        <label><i class="fa-brands fa-line" style="color: #00B900; font-size: 1.4rem; vertical-align: middle; margin-right: 6px;"></i> LINE ID</label>
+                        <input type="text" placeholder="Your Line ID">
+                    </div>
+                    <div class="form-group">
+                        <label><i class="fa-brands fa-whatsapp" style="color: #25D366; font-size: 1.4rem; vertical-align: middle; margin-right: 6px;"></i> WhatsApp</label>
+                        <input type="text" placeholder="Phone number">
+                    </div>
+                </div>
+                
+                <div class="form-row" style="margin-bottom: 1.2rem;">
+                    <div class="form-group">
+                        <label><i class="fa-brands fa-telegram" style="color: #0088cc; font-size: 1.4rem; vertical-align: middle; margin-right: 6px;"></i> Telegram</label>
+                        <input type="text" placeholder="@username">
+                    </div>
+                    <div class="form-group">
+                        <label><i class="fa-solid fa-phone" style="color: #64748b; font-size: 1.2rem; vertical-align: middle; margin-right: 6px;"></i> Other Contact</label>
+                        <input type="text" placeholder="Email or Phone">
+                    </div>
+                </div>
+
+                <div class="form-group full-width" style="margin-top: 1rem;">
+                    <label>Additional Memo</label>
+                    <textarea placeholder="Tell us more about your property..." rows="5"></textarea>
+                </div>
+            </div>
+
+            <button type="button" class="btn-submit-post" style="padding: 1.2rem; font-size: 1.2rem; width: 100%; margin-bottom: 5rem; box-shadow: 0 5px 15px rgba(211, 34, 42, 0.25);">Post your listing now</button>
+        </form>
+    </div>
+</body>
+</html>

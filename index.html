@@ -41,6 +41,21 @@
         <div class="hero-bg"></div>
         <div class="hero-content">
             <div class="hero-centered-layout">
+                <div class="hero-posting-section">
+                    <button class="btn-posting" onclick="window.location.href='post-home.html'">
+                        <div class="posting-text">
+                            <span class="posting-main">Owner</span>
+                            <span class="posting-sub">Renting out home</span>
+                        </div>
+                    </button>
+                    <button class="btn-posting">
+                        <div class="posting-text">
+                            <span class="posting-main">Tenant</span>
+                            <span class="posting-sub">Looking for home</span>
+                        </div>
+                    </button>
+                </div>
+
                 <h1 class="hero-title">First come, First choice.</h1>
 
                 <div class="search-container">
@@ -190,6 +205,207 @@
             </div>
         </div>
     </section>
+
+    <!-- Property Detail Modal -->
+    <div id="propertyModal" class="modal-overlay">
+        <div class="modal">
+            <button class="modal-close" onclick="closeModal()"><i class="fa-solid fa-xmark"></i></button>
+            <div class="modal-content">
+                <div class="modal-image">
+                    <img src="" alt="Property Image" id="modalImg">
+                </div>
+                
+                <div class="modal-details">
+                    <div class="detail-row">
+                        <span class="detail-label">Location</span>
+                        <span class="detail-value" id="modalLocation">Bangkok, Thailand</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Room Type</span>
+                        <span class="detail-value" id="modalRoomType">Modern Condo • 1 Bedroom</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Move-in Date</span>
+                        <span class="detail-value" id="modalDate">April 15, 2026</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Min. Rent Period</span>
+                        <span class="detail-value" id="modalMinRent">1 year</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Pet Friendly</span>
+                        <span class="detail-value" id="modalPet">Yes</span>
+                    </div>
+                    <div class="detail-row price-row">
+                        <span class="detail-label">Monthly Rent</span>
+                        <span class="detail-value" id="modalPrice">฿25,000</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Additional Info</span>
+                        <span class="detail-value" style="font-weight: 500;">Fully furnished, ready to move in. High-speed Wi-Fi, fitness center, and swimming pool accessible.</span>
+                    </div>
+                </div>
+
+                <div class="modal-map">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d124016.92040941845!2d100.419106!3d13.7244416!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30e29b1aa9592ea%3A0xe53158c5c1ca520!2sSukhumvit%2C%20Bangkok%2C%20Thailand!5e0!3m2!1sen!2sus!4v1712852234000!5m2!1sen!2sus" width="100%" height="200" style="border:0; border-radius: 8px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+
+                <button class="btn-contact-modal">Contact Owner</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tenant Detail Modal -->
+    <div id="tenantModal" class="modal-overlay">
+        <div class="modal">
+            <button class="modal-close" onclick="closeTenantModal()"><i class="fa-solid fa-xmark"></i></button>
+            <div class="modal-content">
+                <div class="modal-image">
+                    <img src="" alt="Tenant Avatar" id="tenantModalImg" style="object-position: top;">
+                </div>
+                
+                <div class="modal-details">
+                    <div class="detail-row">
+                        <span class="detail-label">Location</span>
+                        <span class="detail-value" id="tenantModalLocation">Sukhumvit</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Property Type</span>
+                        <span class="detail-value" id="tenantModalPropType">Condo</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Room Type</span>
+                        <span class="detail-value" id="tenantModalRoomType">1-2 Bedrooms</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Pet Preference</span>
+                        <span class="detail-value" id="tenantModalPet">No Preference</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Move-in Date</span>
+                        <span class="detail-value" id="tenantModalDate">May 1st, 2026</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Rent Period</span>
+                        <span class="detail-value" id="tenantModalPeriod">1 Year</span>
+                    </div>
+                    <div class="detail-row price-row">
+                        <span class="detail-label">Budget</span>
+                        <span class="detail-value" id="tenantModalBudget">฿30,000/mo</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Additional Info</span>
+                        <span class="detail-value" style="font-weight: 500;">Looking for a reliable owner. Quiet place preferred.</span>
+                    </div>
+                </div>
+
+                <button class="btn-contact-modal">Contact Tenant</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const modal = document.getElementById('propertyModal');
+        const tenantModal = document.getElementById('tenantModal');
+        
+        function openModal() {
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeModal() {
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto'; // Reset overflow to enable scrolling
+        }
+
+        function openTenantModal() {
+            tenantModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeTenantModal() {
+            tenantModal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close when clicking outside of modal
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                closeModal();
+            }
+            if (event.target == tenantModal) {
+                closeTenantModal();
+            }
+        }
+
+        // Attach click event to all property cards
+        const cards = document.querySelectorAll('.property-card');
+        cards.forEach(card => {
+            card.addEventListener('click', () => {
+                // Get data from clicked card
+                const imgSrc = card.querySelector('img').src;
+                const location = card.querySelector('.card-location').innerText;
+                const feature = card.querySelector('.card-feature').innerText;
+                const dates = card.querySelectorAll('.card-dates');
+                const availableFrom = dates[0] ? dates[0].innerText.replace('Available from: ', '') : 'Immediate';
+                const minRent = dates[1] ? dates[1].innerText.replace('Min Rent: ', '') : '1 year';
+                const price = card.querySelector('.card-price .price').innerText;
+                
+                // Inject data into modal
+                document.getElementById('modalImg').src = imgSrc;
+                document.getElementById('modalLocation').innerText = location;
+                document.getElementById('modalRoomType').innerText = feature;
+                document.getElementById('modalDate').innerText = availableFrom;
+                document.getElementById('modalMinRent').innerText = minRent;
+                
+                // Pet friendly rule for mock variation
+                document.getElementById('modalPet').innerText = location.includes('Phuket') || location.includes('Pattaya') ? 'Yes (Small pets)' : 'No';
+                
+                document.getElementById('modalPrice').innerText = price;
+                
+                openModal();
+            });
+        });
+
+        // Attach click event to all tenant cards
+        const tenantCards = document.querySelectorAll('.tenant-card');
+        tenantCards.forEach(card => {
+            card.addEventListener('click', () => {
+                const imgSrc = card.querySelector('img').src;
+                const header = card.querySelector('.tenant-header').innerText;
+                const detailsElements = card.querySelectorAll('.tenant-detail');
+                
+                let moveIn = "ASAP";
+                let budget = "฿10,000";
+                let room = "Studio";
+                let loc = "Bangkok";
+                
+                detailsElements.forEach(el => {
+                    const text = el.innerText;
+                    if (text.includes("Move in:")) moveIn = text.replace("Move in:", "").trim();
+                    if (text.includes("Budget:")) budget = text.replace("Budget:", "").trim();
+                    if (text.includes("Room Type:")) room = text.replace("Room Type:", "").trim();
+                    if (text.includes("Location:")) loc = text.replace("Location:", "").trim();
+                });
+                
+                document.getElementById('tenantModalImg').src = imgSrc;
+                document.getElementById('tenantModalLocation').innerText = loc;
+                
+                document.getElementById('tenantModalPropType').innerText = (room.toLowerCase().includes('villa') || room.toLowerCase().includes('house')) ? 'House / Villa' : 'Condo / Apartment';
+                
+                document.getElementById('tenantModalRoomType').innerText = room;
+                document.getElementById('tenantModalDate').innerText = moveIn;
+                
+                document.getElementById('tenantModalPet').innerText = loc.includes('Phuket') ? 'Yes (Has a dog)' : 'No Preference';
+                
+                document.getElementById('tenantModalPeriod').innerText = loc.includes('Chiang Mai') ? '6 Months' : '1 Year minimum';
+                
+                document.getElementById('tenantModalBudget').innerText = budget;
+                
+                openTenantModal();
+            });
+        });
+    </script>
 </body>
 
 </html>
