@@ -1,0 +1,530 @@
+/* Hero Section */
+.hero {
+    position: relative;
+    width: 100%;
+    min-height: 350px;
+    padding: 3rem 0 3.5rem 0;
+    display: flex;
+    align-items: center;
+}
+
+/* Background image using the generated image path */
+.hero-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Red gradient overlay to act as a red background, keeping the home image */
+    background: linear-gradient(rgba(211, 34, 42, 0.85), rgba(211, 34, 42, 0.85)), url('../images/hero_bg.png');
+    background-size: cover;
+    background-position: center;
+    z-index: 1;
+}
+
+/* Hero overlay removed for clear image */
+
+.hero-content {
+    position: relative;
+    z-index: 3;
+    padding: 0 5%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.hero-centered-layout {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+/* Posting Actions */
+.hero-posting-section {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.btn-posting {
+    background-color: #a81218; /* Strong red background */
+    border: 2px solid rgba(255, 255, 255, 0.8); /* Thick white outline */
+    border-radius: 50px;
+    padding: 0.8rem 2.5rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s, transform 0.2s, box-shadow 0.2s;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.btn-posting:hover {
+    background-color: var(--primary-red);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+}
+
+.posting-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.posting-main {
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 1.15rem;
+    letter-spacing: 0.5px;
+}
+
+.posting-sub {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 0.85rem;
+    font-weight: 400;
+    margin-top: 2px;
+}
+
+.hero-title {
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: #ffffff;
+    text-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+    line-height: 1.1;
+    margin-bottom: 2.5rem;
+    text-align: center;
+}
+
+/* New Search Bar Redesign */
+.search-container {
+    background: transparent;
+    box-shadow: none;
+    padding: 0;
+    max-width: 1000px;
+    width: 100%;
+}
+
+.search-role-selector {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 1.2rem;
+    padding-left: 2rem;
+}
+
+.search-role-selector > span {
+    color: white;
+    font-weight: 500;
+    font-size: 1.1rem;
+}
+
+.role-options {
+    display: flex;
+    gap: 1.8rem;
+    position: relative;
+}
+
+.role-btn {
+    background: none;
+    border: none;
+    padding: 0 0 8px 0;
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.6);
+    transition: color 0.3s;
+}
+
+.role-btn.active {
+    color: white;
+}
+
+.role-underline {
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    height: 3px;
+    background-color: white;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Premium Multi-Filter Bar */
+.filter-bar {
+    width: 100%;
+    background-color: white;
+    border-radius: 100px;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+}
+
+.filter-group {
+    flex: 1;
+    padding: 10px 24px;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    transition: background 0.2s;
+    position: relative;
+    border-radius: 50px;
+}
+
+.filter-group:hover {
+    background: #f1f5f9;
+}
+
+.filter-group label {
+    font-size: 0.82rem;
+    font-weight: 800;
+    color: var(--text-dark);
+    text-transform: uppercase;
+    margin-bottom: 3px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.filter-chevron {
+    font-size: 0.7rem;
+    color: #94a3b8;
+    margin-left: 6px;
+    transition: transform 0.2s;
+}
+
+.filter-group:hover .filter-chevron {
+    transform: rotate(180deg);
+}
+
+.filter-group .value {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #64748b;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.filter-divider {
+    height: 38px;
+    width: 2px;
+    background-color: #cbd5e1;
+}
+
+.btn-search-main {
+    background-color: var(--primary-red);
+    color: white;
+    width: 58px;
+    height: 58px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s, background-color 0.2s;
+    margin-left: 10px;
+    box-shadow: 0 4px 15px rgba(225, 29, 72, 0.3);
+}
+
+.btn-search-main i {
+    font-size: 1.3rem;
+}
+
+.btn-search-main:hover {
+    background-color: #be123c;
+    transform: scale(1.05);
+}
+
+/* Custom Dropdown Styling (Simplified) */
+.filter-dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 15px 45px rgba(0,0,0,0.18);
+    padding: 1rem;
+    min-width: 200px;
+    z-index: 1000;
+    display: none;
+    border: 1px solid #f1f5f9;
+}
+
+/* Bridge to prevent mouse-leave flickering */
+.filter-dropdown::before {
+    content: '';
+    position: absolute;
+    top: -15px;
+    left: 0;
+    width: 100%;
+    height: 15px;
+    background: transparent;
+}
+
+.filter-group:hover .filter-dropdown {
+    display: block;
+}
+
+.filter-dropdown a {
+    display: block;
+    padding: 0.6rem 1rem;
+    color: var(--text-dark);
+    text-decoration: none;
+    border-radius: 8px;
+    transition: background 0.2s;
+}
+
+.filter-dropdown a:hover {
+    background: #f1f5f9;
+}
+
+/* Modified Main Content Areas */
+.properties-section, .tenant-section {
+    padding: 3rem 5% 2rem 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.section-title {
+    font-size: 1.8rem;
+    color: var(--text-dark);
+    margin-bottom: 0; /* Removed margin as header handles it now */
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.view-all-link {
+    text-decoration: none;
+    color: var(--primary-red);
+    font-weight: 600;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.2s;
+}
+
+.view-all-link:hover {
+    color: var(--hover-red);
+    gap: 0.8rem; /* Subtle bounce animation on arrow */
+}
+
+
+.badge {
+    background-color: var(--primary-red);
+    color: white;
+    font-size: 1.1rem;
+    padding: 0.4rem 1rem;
+    border-radius: 20px;
+    font-weight: 600;
+    vertical-align: middle;
+}
+
+/* Property Cards (Airbnb Style) */
+.property-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+}
+
+.property-card {
+    border-radius: 12px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    display: flex;
+    flex-direction: column;
+}
+
+.property-card:hover {
+    transform: translateY(-4px);
+}
+
+.card-img-wrapper {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    border-radius: 12px;
+    margin-bottom: 0.8rem;
+}
+
+.card-img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s;
+}
+
+.property-card:hover .card-img-wrapper img {
+    transform: scale(1.05);
+}
+
+.card-body {
+    padding: 0.2rem 0;
+}
+
+.card-location {
+    font-weight: 600;
+    font-size: 1.05rem;
+    color: var(--text-dark);
+    margin-bottom: 0.2rem;
+}
+
+.card-feature, .card-dates {
+    font-size: 0.95rem;
+    color: var(--text-light);
+    margin-bottom: 0.2rem;
+}
+
+.card-price {
+    margin-top: 0.4rem;
+    font-size: 1rem;
+    color: var(--text-dark);
+}
+
+.card-price .price {
+    font-weight: 600;
+}
+
+/* Tenant Cards (Horizontal) */
+.tenant-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+}
+
+.tenant-card {
+    display: flex;
+    background-color: #ffffff;
+    border: 2px solid #cccccc; /* Stronger visible border */
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+    transition: box-shadow 0.2s, transform 0.2s, border-color 0.2s;
+    cursor: pointer; /* Change to hand icon on hover */
+}
+
+.tenant-card:hover {
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    transform: translateY(-2px);
+    border-color: var(--primary-red); /* Highlight border on hover */
+}
+
+.tenant-img-wrapper {
+    flex: 0 0 200px;
+    height: 100%;
+    min-height: 200px;
+}
+
+.placeholder-avatar {
+    background-color: #eeeeee;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #777777;
+    font-size: 6rem;
+}
+
+.tenant-img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.tenant-body {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex: 1;
+}
+
+.tenant-header {
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 1rem;
+    line-height: 1.3;
+}
+
+.tenant-detail {
+    font-size: 0.95rem;
+    color: var(--text-light);
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+.tenant-detail i {
+    width: 18px;
+    text-align: center;
+    color: var(--primary-red);
+}
+
+.tenant-detail strong {
+    color: var(--text-dark);
+    font-weight: 500;
+}
+
+.btn-contact {
+    margin-top: auto;
+    background-color: var(--primary-red);
+    color: #ffffff;
+    border: 1px solid var(--primary-red);
+    padding: 0.6rem 1.2rem;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    cursor: pointer;
+    align-self: flex-start;
+    transition: background-color 0.2s, color 0.2s;
+    margin-top: 1.2rem;
+}
+
+.btn-contact:hover {
+    background-color: var(--hover-red);
+    color: #ffffff;
+}
+
+/* Modal Styles moved to modal.css */
+
+
+/* Responsive adjustments */
+@media (max-width: 1000px) {
+    .property-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .tenant-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+    .property-grid {
+        grid-template-columns: 1fr;
+    }
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    .tenant-card {
+        flex-direction: column;
+    }
+    .tenant-img-wrapper {
+        min-height: 200px;
+        flex: auto;
+    }
+}

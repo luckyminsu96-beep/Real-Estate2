@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Connect Thai Home</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="../css/login.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body style="background-color: var(--bg-light);">
+    <header class="navbar">
+        <div class="logo">
+            <a href="../index.html" style="text-decoration: none; color: inherit; display: flex; align-items: center; gap: 8px;">
+                <i class="fa-solid fa-house-chimney icon-red"></i>
+                <span>Connect Thai Home</span>
+            </a>
+        </div>
+        <nav class="nav-links">
+            <a href="../index.html">Home</a>
+            <a href="#">Buy <i class="fa-solid fa-chevron-down arrow"></i></a>
+            <a href="#">Rent <i class="fa-solid fa-chevron-down arrow"></i></a>
+            <a href="#">New Projects <i class="fa-solid fa-chevron-down arrow"></i></a>
+            <a href="#">Guides</a>
+        </nav>
+        <div class="nav-right">
+            <a href="favorites.html" class="nav-points" title="Manage Points">
+                <i class="fa-solid fa-coins"></i>
+                <span>My Point: 2</span>
+            </a>
+            <a href="favorites.html" class="nav-fav">
+                <i class="fa-solid fa-heart"></i>
+                <span>My Favorite</span>
+            </a>
+            <div class="lang-selector">
+                EN <i class="fa-solid fa-chevron-down arrow"></i>
+                <div class="lang-dropdown">
+                    <a href="#">Thai (TH)</a>
+                    <a href="#">Chinese (ZH)</a>
+                    <a href="#">Korean (KO)</a>
+                    <a href="#">Russian (RU)</a>
+                </div>
+            </div>
+            <!-- Login button removed as this is the login page -->
+        </div>
+    </header>
+
+    <div class="login-auth-container">
+        <div class="login-card-wrapper">
+            <div class="login-card">
+                <div class="login-header">
+                    <h1>Welcome</h1>
+                </div>
+
+                <p style="color: #64748b; margin-top: 1.5rem; margin-bottom: 2rem; font-size: 1.1rem; font-weight: 500;">Login to your account to continue</p>
+
+                <div class="social-login-group">
+                    <button class="btn-social">
+                        <img src="../images/google_logo.png" alt="Google Logo">
+                        <span>Continue with Google Account</span>
+                    </button>
+                </div>
+
+            <div class="divider">
+                <span>OR</span>
+            </div>
+
+            <form class="login-form">
+                <div class="form-group">
+                    <label>Email Address</label>
+                    <input type="email" placeholder="Enter your email">
+                </div>
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" placeholder="Enter your password">
+                </div>
+
+                <div class="form-options">
+                    <label class="checkbox-container">
+                        <input type="checkbox">
+                        Remember me
+                    </label>
+                    <a href="#" class="forgot-password">Forgot Password?</a>
+                </div>
+
+                <button type="button" class="btn-login-submit" onclick="window.location.href='../index.html'">Login</button>
+            </form>
+
+            <div class="signup-prompt">
+                Don't have an account? <a href="#">Create Account</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

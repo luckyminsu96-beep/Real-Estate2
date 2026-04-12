@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Favorite - Connect Thai Home</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="../css/property-list.css">
+    <link rel="stylesheet" href="../css/modal.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body style="background-color: var(--bg-light);">
+    <header class="navbar">
+        <div class="logo">
+            <a href="../index.html" style="text-decoration: none; color: inherit; display: flex; align-items: center; gap: 8px;">
+                <i class="fa-solid fa-house-chimney icon-red"></i>
+                <span>Connect Thai Home</span>
+            </a>
+        </div>
+        <nav class="nav-links">
+            <a href="../index.html">Home</a>
+            <a href="#">Buy <i class="fa-solid fa-chevron-down arrow"></i></a>
+            <a href="#">Rent <i class="fa-solid fa-chevron-down arrow"></i></a>
+            <a href="#">New Projects <i class="fa-solid fa-chevron-down arrow"></i></a>
+            <a href="#">Guides</a>
+        </nav>
+        <div class="nav-right">
+            <a href="favorites.html" class="nav-points" title="Manage Points">
+                <i class="fa-solid fa-coins"></i>
+                <span>My Point: 2</span>
+            </a>
+            <a href="favorites.html" class="nav-fav" style="color: var(--primary-red);">
+                <i class="fa-solid fa-heart"></i>
+                <span>My Favorite</span>
+            </a>
+            <div class="lang-selector">
+                EN <i class="fa-solid fa-chevron-down arrow"></i>
+                <div class="lang-dropdown">
+                    <a href="#">Thai (TH)</a>
+                    <a href="#">Chinese (ZH)</a>
+                    <a href="#">Korean (KO)</a>
+                    <a href="#">Russian (RU)</a>
+                </div>
+            </div>
+            <button class="btn-login" onclick="window.location.href='login.html'">Login</button>
+        </div>
+    </header>
+
+    <div class="list-container">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+            <h1 style="font-size: 2.2rem; font-weight: 800; color: var(--text-dark);">My Favorite List</h1>
+            <div style="display: flex; align-items: center; gap: 1rem;">
+                <div class="nav-points" style="margin: 0; cursor: default; background: rgba(245, 158, 11, 0.05);">
+                    <i class="fa-solid fa-coins"></i>
+                    <span>My Point: 2</span>
+                </div>
+                <button class="btn-charge" onclick="window.location.href='charge.html'">Charge</button>
+            </div>
+        </div>
+
+        <!-- Favorite List -->
+        <div class="property-list-vertical">
+            <!-- Favorite 1 -->
+            <div class="property-list-item">
+                <div class="item-image">
+                    <img src="../images/modern_condo.png" alt="Property">
+                    <button class="btn-favorite active"><i class="fa-solid fa-heart"></i></button>
+                </div>
+                <div class="item-content">
+                    <div class="item-header">
+                        <div class="item-title">Siri at Sukhumvit 24</div>
+                        <div class="item-price">฿25,000<span>/mo</span></div>
+                    </div>
+                    
+                    <div class="item-details-grid">
+                        <div class="detail-pill"><i class="fa-solid fa-building"></i> Condo</div>
+                        <div class="detail-pill"><i class="fa-solid fa-bed"></i> 1 Bedroom</div>
+                        <div class="detail-pill"><i class="fa-solid fa-wallet"></i> ฿25,000/mo</div>
+                        <div class="detail-pill"><i class="fa-solid fa-clock"></i> 1 Year Min</div>
+                    </div>
+
+                    <div class="item-footer">
+                        <div class="item-location">
+                            <i class="fa-solid fa-location-dot"></i> Sukhumvit, Bangkok
+                        </div>
+                        <button class="btn-item-contact">Contact Owner</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Favorite 2 -->
+            <div class="property-list-item">
+                <div class="item-image">
+                    <img src="../images/condo_interior.png" alt="Property">
+                    <button class="btn-favorite active"><i class="fa-solid fa-heart"></i></button>
+                </div>
+                <div class="item-content">
+                    <div class="item-header">
+                        <div class="item-title">Luxury Villa Phuket</div>
+                        <div class="item-price">฿45,000<span>/mo</span></div>
+                    </div>
+                    
+                    <div class="item-details-grid">
+                        <div class="detail-pill"><i class="fa-solid fa-house"></i> Villa</div>
+                        <div class="detail-pill"><i class="fa-solid fa-bed"></i> 3 Bedrooms</div>
+                        <div class="detail-pill"><i class="fa-solid fa-wallet"></i> ฿45,000/mo</div>
+                    </div>
+
+                    <div class="item-footer">
+                        <div class="item-location">
+                            <i class="fa-solid fa-location-dot"></i> Phuket
+                        </div>
+                        <button class="btn-item-contact">Contact Owner</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Favorite 3 -->
+            <div class="property-list-item">
+                <div class="item-image">
+                    <img src="../images/studio_room.png" alt="Property">
+                    <button class="btn-favorite active"><i class="fa-solid fa-heart"></i></button>
+                </div>
+                <div class="item-content">
+                    <div class="item-header">
+                        <div class="item-title">Seaside Studio Pattaya</div>
+                        <div class="item-price">฿15,000<span>/mo</span></div>
+                    </div>
+                    
+                    <div class="item-details-grid">
+                        <div class="detail-pill"><i class="fa-solid fa-building"></i> Studio</div>
+                        <div class="detail-pill"><i class="fa-solid fa-bed"></i> Studio Room</div>
+                    </div>
+
+                    <div class="item-footer">
+                        <div class="item-location">
+                            <i class="fa-solid fa-location-dot"></i> Pattaya
+                        </div>
+                        <button class="btn-item-contact">Contact Owner</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div style="margin-top: 3rem; text-align: center;">
+            <a href="property-list.html" class="view-all-link" style="font-weight: 700; font-size: 1.1rem; color: var(--primary-red); text-decoration: none;">
+                <i class="fa-solid fa-plus-circle"></i> Explore more properties
+            </a>
+        </div>
+    </div>
+
+    <!-- Toast UI -->
+    <div id="toast" class="toast-notification">
+        <i class="fa-solid fa-circle-check toast-icon"></i>
+        <span id="toast-message">Added to Favorites</span>
+    </div>
+
+    <script>
+        // Favorite Button & Toast Logic
+        document.querySelectorAll('.btn-favorite').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                this.classList.toggle('active');
+                
+                const isAdded = this.classList.contains('active');
+                showToast(isAdded ? 'Added to Favorites' : 'Removed from Favorites');
+            });
+        });
+
+        // Contact Button & Point Logic
+        document.querySelectorAll('.btn-item-contact').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                showToast('Connecting... 1 Point Deducted', 'fa-solid fa-coins');
+            });
+        });
+
+        function showToast(message, iconClass = 'fa-solid fa-circle-check') {
+            const toast = document.getElementById('toast');
+            const msg = document.getElementById('toast-message');
+            const icon = toast.querySelector('.toast-icon');
+            
+            msg.innerText = message;
+            icon.className = 'toast-icon ' + iconClass;
+            
+            toast.classList.add('show');
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 2500);
+        }
+    </script>
+</body>
+</html>

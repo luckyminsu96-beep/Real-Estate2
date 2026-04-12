@@ -7,7 +7,9 @@
     <title>Connect Thai Home</title>
     <!-- Use similar font as DDProperty -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/modal.css">
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
@@ -27,13 +29,24 @@
         </nav>
         <div class="nav-right">
             <!-- Removed Install App as requested -->
+            <a href="pages/favorites.html" class="nav-points" title="Manage Points">
+                <i class="fa-solid fa-coins"></i>
+                <span>My Point: 2</span>
+            </a>
+            <a href="pages/favorites.html" class="nav-fav">
+                <i class="fa-solid fa-heart"></i>
+                <span>My Favorite</span>
+            </a>
             <div class="lang-selector">
                 EN <i class="fa-solid fa-chevron-down arrow"></i>
+                <div class="lang-dropdown">
+                    <a href="#">Thai (TH)</a>
+                    <a href="#">Chinese (ZH)</a>
+                    <a href="#">Korean (KO)</a>
+                    <a href="#">Russian (RU)</a>
+                </div>
             </div>
-            <div class="bell-icon">
-                <i class="fa-regular fa-bell"></i>
-            </div>
-            <button class="btn-login">Login</button>
+            <button class="btn-login" onclick="window.location.href='pages/login.html'">Login</button>
         </div>
     </header>
 
@@ -42,13 +55,13 @@
         <div class="hero-content">
             <div class="hero-centered-layout">
                 <div class="hero-posting-section">
-                    <button class="btn-posting" onclick="window.location.href='post-home.html'">
+                    <button class="btn-posting" onclick="window.location.href='pages/post-home.html'">
                         <div class="posting-text">
                             <span class="posting-main">Owner</span>
                             <span class="posting-sub">Renting out home</span>
                         </div>
                     </button>
-                    <button class="btn-posting">
+                    <button class="btn-posting" onclick="window.location.href='pages/post-tenant.html'">
                         <div class="posting-text">
                             <span class="posting-main">Tenant</span>
                             <span class="posting-sub">Looking for home</span>
@@ -59,23 +72,80 @@
                 <h1 class="hero-title">First come, First choice.</h1>
 
                 <div class="search-container">
-                    <div class="search-tabs">
-                        <button class="tab active">Buy</button>
-                        <button class="tab">Rent</button>
-                    </div>
-
-                    <div class="search-box">
-                        <div class="search-input-wrapper">
-                            <i class="fa-solid fa-magnifying-glass search-icon"></i>
-                            <input type="text" placeholder="Search BTS or MRTs like Chit Lom">
+                    <div class="search-role-selector">
+                        <span>I'm a...</span>
+                        <div class="role-options">
+                            <button class="role-btn active" id="btnOwner" onclick="setRole('owner', this)">Owner</button>
+                            <button class="role-btn" id="btnTenant" onclick="setRole('tenant', this)">Tenant</button>
+                            <div id="roleUnderline" class="role-underline"></div>
                         </div>
-                        <button class="btn-search"><i class="fa-solid fa-magnifying-glass"></i> Search</button>
                     </div>
 
-                    <div class="search-filters">
-                        <button class="filter-btn"><i class="fa-regular fa-building"></i> All Residential</button>
-                        <button class="filter-btn"><i class="fa-solid fa-dollar-sign"></i> Price</button>
-                        <button class="filter-btn"><i class="fa-solid fa-bed"></i> Bedroom</button>
+                    <div class="filter-bar">
+                        <!-- Location -->
+                        <div class="filter-group">
+                            <label>Location <i class="fa-solid fa-chevron-down filter-chevron"></i></label>
+                            <div class="value" id="valLocation">Bangkok</div>
+                            <div class="filter-dropdown">
+                                <a href="javascript:void(0)" onclick="updateVal('Location', 'Bangkok')">Bangkok</a>
+                                <a href="javascript:void(0)" onclick="updateVal('Location', 'Pattaya')">Pattaya</a>
+                                <a href="javascript:void(0)" onclick="updateVal('Location', 'Phuket')">Phuket</a>
+                            </div>
+                        </div>
+                        <div class="filter-divider"></div>
+
+                        <!-- Home Type -->
+                        <div class="filter-group">
+                            <label>Home Type <i class="fa-solid fa-chevron-down filter-chevron"></i></label>
+                            <div class="value" id="valHomeType">Condo</div>
+                            <div class="filter-dropdown">
+                                <a href="javascript:void(0)" onclick="updateVal('HomeType', 'Condo')">Condo</a>
+                                <a href="javascript:void(0)" onclick="updateVal('HomeType', 'House')">House</a>
+                                <a href="javascript:void(0)" onclick="updateVal('HomeType', 'Villa')">Villa</a>
+                            </div>
+                        </div>
+                        <div class="filter-divider"></div>
+
+                        <!-- Room Type -->
+                        <div class="filter-group">
+                            <label>Room Type <i class="fa-solid fa-chevron-down filter-chevron"></i></label>
+                            <div class="value" id="valRoomType">1 Bedroom</div>
+                            <div class="filter-dropdown">
+                                <a href="javascript:void(0)" onclick="updateVal('RoomType', 'Studio')">Studio</a>
+                                <a href="javascript:void(0)" onclick="updateVal('RoomType', '1 Bedroom')">1 Bedroom</a>
+                                <a href="javascript:void(0)" onclick="updateVal('RoomType', '2 Bedroom')">2 Bedroom</a>
+                            </div>
+                        </div>
+                        <div class="filter-divider"></div>
+
+                        <!-- Price -->
+                        <div class="filter-group">
+                            <label>Price <i class="fa-solid fa-chevron-down filter-chevron"></i></label>
+                            <div class="value" id="valPrice">Any Price</div>
+                            <div class="filter-dropdown">
+                                <a href="javascript:void(0)" onclick="updateVal('Price', 'Any Price')">Any Price</a>
+                                <a href="javascript:void(0)" onclick="updateVal('Price', '< ฿20k')">&lt; ฿20k</a>
+                                <a href="javascript:void(0)" onclick="updateVal('Price', '฿20k - 50k')">฿20k - 50k</a>
+                                <a href="javascript:void(0)" onclick="updateVal('Price', '฿50k+')">฿50k+</a>
+                            </div>
+                        </div>
+                        <div class="filter-divider"></div>
+
+                        <!-- Min Renting -->
+                        <div class="filter-group">
+                            <label>Min Renting <i class="fa-solid fa-chevron-down filter-chevron"></i></label>
+                            <div class="value" id="valMinRent">1 Year</div>
+                            <div class="filter-dropdown">
+                                <a href="javascript:void(0)" onclick="updateVal('MinRent', '3 Months')">3 Months</a>
+                                <a href="javascript:void(0)" onclick="updateVal('MinRent', '6 Months')">6 Months</a>
+                                <a href="javascript:void(0)" onclick="updateVal('MinRent', '1 Year')">1 Year</a>
+                                <a href="javascript:void(0)" onclick="updateVal('MinRent', '2 Year+')">2 Year+</a>
+                            </div>
+                        </div>
+
+                        <button class="btn-search-main" onclick="showToast('Searching properties...', 'fa-solid fa-magnifying-glass fa-beat-fast')">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </button>
                     </div>
                 </div>
             </div>
@@ -84,11 +154,15 @@
 
     <!-- Properties section "Ready to move in" -->
     <section class="properties-section">
-        <h2 class="section-title">Ready to move in</h2>
+        <div class="section-header">
+            <h2 class="section-title">Ready to move in</h2>
+            <a href="pages/property-list.html" class="view-all-link">View all properties <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
         <div class="property-grid">
             <div class="property-card">
                 <div class="card-img-wrapper">
                     <img src="images/condo_interior.png" alt="Bangkok Condo">
+                    <button class="btn-favorite" title="Add to Favorites"><i class="fa-solid fa-heart"></i></button>
                 </div>
                 <div class="card-body">
                     <div class="card-location">Bangkok, Thailand</div>
@@ -103,6 +177,7 @@
             <div class="property-card">
                 <div class="card-img-wrapper">
                     <img src="images/studio_room.png" alt="Pattaya Studio">
+                    <button class="btn-favorite" title="Add to Favorites"><i class="fa-solid fa-heart"></i></button>
                 </div>
                 <div class="card-body">
                     <div class="card-location">Pattaya, Thailand</div>
@@ -117,6 +192,7 @@
             <div class="property-card">
                 <div class="card-img-wrapper">
                     <img src="images/condo_interior.png" alt="Phuket Villa">
+                    <button class="btn-favorite" title="Add to Favorites"><i class="fa-solid fa-heart"></i></button>
                 </div>
                 <div class="card-body">
                     <div class="card-location">Phuket, Thailand</div>
@@ -131,6 +207,7 @@
             <div class="property-card">
                 <div class="card-img-wrapper">
                     <img src="images/studio_room.png" alt="Chiang Mai Apartment">
+                    <button class="btn-favorite" title="Add to Favorites"><i class="fa-solid fa-heart"></i></button>
                 </div>
                 <div class="card-body">
                     <div class="card-location">Chiang Mai, Thailand</div>
@@ -146,11 +223,15 @@
 
     <!-- Tenant Section "Looking for home" -->
     <section class="tenant-section">
-        <h2 class="section-title">Looking for home <span class="badge">Real-time</span></h2>
+        <div class="section-header">
+            <h2 class="section-title">Looking for home <span class="badge">Real-time</span></h2>
+            <a href="pages/tenant-list.html" class="view-all-link">Find more tenants <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
         <div class="tenant-grid">
             <div class="tenant-card">
                 <div class="tenant-img-wrapper">
                     <img src="images/avatar_man.png" alt="Tenant Avatar">
+                    <button class="btn-favorite" title="Add to Favorites"><i class="fa-solid fa-heart"></i></button>
                 </div>
                 <div class="tenant-body">
                     <div class="tenant-header">Looking for a place in Bangkok</div>
@@ -165,6 +246,7 @@
             <div class="tenant-card">
                 <div class="tenant-img-wrapper">
                     <img src="images/avatar_woman.png" alt="Tenant Avatar">
+                    <button class="btn-favorite" title="Add to Favorites"><i class="fa-solid fa-heart"></i></button>
                 </div>
                 <div class="tenant-body">
                     <div class="tenant-header">Need a studio near BTS</div>
@@ -179,6 +261,7 @@
             <div class="tenant-card">
                 <div class="tenant-img-wrapper">
                     <img src="images/avatar_man.png" alt="Tenant Avatar">
+                    <button class="btn-favorite" title="Add to Favorites"><i class="fa-solid fa-heart"></i></button>
                 </div>
                 <div class="tenant-body">
                     <div class="tenant-header">Relocating to Phuket</div>
@@ -193,6 +276,7 @@
             <div class="tenant-card">
                 <div class="tenant-img-wrapper">
                     <img src="images/avatar_woman.png" alt="Tenant Avatar">
+                    <button class="btn-favorite" title="Add to Favorites"><i class="fa-solid fa-heart"></i></button>
                 </div>
                 <div class="tenant-body">
                     <div class="tenant-header">Quiet apartment in Chiang Mai</div>
@@ -308,7 +392,15 @@
         const modal = document.getElementById('propertyModal');
         const tenantModal = document.getElementById('tenantModal');
         
-        function openModal() {
+        function openModal(imgSrc, location, price, roomType, date, minRent, pet) {
+            if (imgSrc) document.getElementById('modalImg').src = imgSrc;
+            if (location) document.getElementById('modalLocation').innerText = location;
+            if (price) document.getElementById('modalPrice').innerText = price;
+            if (roomType) document.getElementById('modalRoomType').innerText = roomType;
+            if (date) document.getElementById('modalDate').innerText = date;
+            if (minRent) document.getElementById('modalMinRent').innerText = minRent;
+            if (pet) document.getElementById('modalPet').innerText = pet;
+
             modal.classList.add('active');
             document.body.style.overflow = 'hidden';
         }
@@ -318,7 +410,15 @@
             document.body.style.overflow = 'auto'; // Reset overflow to enable scrolling
         }
 
-        function openTenantModal() {
+        function openTenantModal(imgSrc, loc, budget, room, moveIn, period, pet) {
+            if (imgSrc) document.getElementById('tenantModalImg').src = imgSrc;
+            if (loc) document.getElementById('tenantModalLocation').innerText = loc;
+            if (budget) document.getElementById('tenantModalBudget').innerText = budget;
+            if (room) document.getElementById('tenantModalRoomType').innerText = room;
+            if (moveIn) document.getElementById('tenantModalDate').innerText = moveIn;
+            if (period) document.getElementById('tenantModalPeriod').innerText = period;
+            if (pet) document.getElementById('tenantModalPet').innerText = pet;
+
             tenantModal.classList.add('active');
             document.body.style.overflow = 'hidden';
         }
@@ -341,7 +441,10 @@
         // Attach click event to all property cards
         const cards = document.querySelectorAll('.property-card');
         cards.forEach(card => {
-            card.addEventListener('click', () => {
+            card.addEventListener('click', (e) => {
+                // Prevent modal if clicking the heart button
+                if (e.target.closest('.btn-favorite')) return;
+
                 // Get data from clicked card
                 const imgSrc = card.querySelector('img').src;
                 const location = card.querySelector('.card-location').innerText;
@@ -350,29 +453,20 @@
                 const availableFrom = dates[0] ? dates[0].innerText.replace('Available from: ', '') : 'Immediate';
                 const minRent = dates[1] ? dates[1].innerText.replace('Min Rent: ', '') : '1 year';
                 const price = card.querySelector('.card-price .price').innerText;
+                const pet = location.includes('Phuket') || location.includes('Pattaya') ? 'Yes (Small pets)' : 'No';
                 
-                // Inject data into modal
-                document.getElementById('modalImg').src = imgSrc;
-                document.getElementById('modalLocation').innerText = location;
-                document.getElementById('modalRoomType').innerText = feature;
-                document.getElementById('modalDate').innerText = availableFrom;
-                document.getElementById('modalMinRent').innerText = minRent;
-                
-                // Pet friendly rule for mock variation
-                document.getElementById('modalPet').innerText = location.includes('Phuket') || location.includes('Pattaya') ? 'Yes (Small pets)' : 'No';
-                
-                document.getElementById('modalPrice').innerText = price;
-                
-                openModal();
+                openModal(imgSrc, location, price, feature, availableFrom, minRent, pet);
             });
         });
 
         // Attach click event to all tenant cards
         const tenantCards = document.querySelectorAll('.tenant-card');
         tenantCards.forEach(card => {
-            card.addEventListener('click', () => {
+            card.addEventListener('click', (e) => {
+                // Prevent modal if clicking the heart button
+                if (e.target.closest('.btn-favorite')) return;
+
                 const imgSrc = card.querySelector('img').src;
-                const header = card.querySelector('.tenant-header').innerText;
                 const detailsElements = card.querySelectorAll('.tenant-detail');
                 
                 let moveIn = "ASAP";
@@ -388,24 +482,73 @@
                     if (text.includes("Location:")) loc = text.replace("Location:", "").trim();
                 });
                 
-                document.getElementById('tenantModalImg').src = imgSrc;
-                document.getElementById('tenantModalLocation').innerText = loc;
+                const propType = (room.toLowerCase().includes('villa') || room.toLowerCase().includes('house')) ? 'House / Villa' : 'Condo / Apartment';
+                const pet = loc.includes('Phuket') ? 'Yes (Has a dog)' : 'No Preference';
+                const period = loc.includes('Chiang Mai') ? '6 Months' : '1 Year minimum';
                 
-                document.getElementById('tenantModalPropType').innerText = (room.toLowerCase().includes('villa') || room.toLowerCase().includes('house')) ? 'House / Villa' : 'Condo / Apartment';
-                
-                document.getElementById('tenantModalRoomType').innerText = room;
-                document.getElementById('tenantModalDate').innerText = moveIn;
-                
-                document.getElementById('tenantModalPet').innerText = loc.includes('Phuket') ? 'Yes (Has a dog)' : 'No Preference';
-                
-                document.getElementById('tenantModalPeriod').innerText = loc.includes('Chiang Mai') ? '6 Months' : '1 Year minimum';
-                
-                document.getElementById('tenantModalBudget').innerText = budget;
-                
-                openTenantModal();
+                openTenantModal(imgSrc, loc, budget, room, moveIn, period, pet);
             });
         });
+        // Search Bar Logic
+        function setRole(role, btn) {
+            document.querySelectorAll('.role-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            updateUnderline();
+        }
+
+        function updateUnderline() {
+            const activeBtn = document.querySelector('.role-btn.active');
+            const underline = document.getElementById('roleUnderline');
+            underline.style.width = activeBtn.offsetWidth + 'px';
+            underline.style.left = activeBtn.offsetLeft + 'px';
+        }
+
+        function updateVal(id, text) {
+            document.getElementById('val' + id).innerText = text;
+        }
+
+        // Initialize underline on load
+        window.addEventListener('load', updateUnderline);
+        window.addEventListener('resize', updateUnderline);
+
+        // Favorite Button & Toast Logic
+        document.querySelectorAll('.btn-favorite').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                this.classList.toggle('active');
+                
+                const isAdded = this.classList.contains('active');
+                showToast(isAdded ? 'Added to Favorites' : 'Removed from Favorites');
+            });
+        });
+
+        // Contact Button & Point Logic
+        document.querySelectorAll('.btn-contact, .btn-contact-modal').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                showToast('Connecting... 1 Point Deducted', 'fa-solid fa-coins');
+            });
+        });
+
+        function showToast(message, iconClass = 'fa-solid fa-circle-check') {
+            const toast = document.getElementById('toast');
+            const msg = document.getElementById('toast-message');
+            const icon = toast.querySelector('.toast-icon');
+            
+            msg.innerText = message;
+            icon.className = 'toast-icon ' + iconClass;
+            
+            toast.classList.add('show');
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 2500);
+        }
     </script>
+    
+    <div id="toast" class="toast-notification">
+        <i class="fa-solid fa-circle-check toast-icon"></i>
+        <span id="toast-message">Added to Favorites</span>
+    </div>
 </body>
 
 </html>

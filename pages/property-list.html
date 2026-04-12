@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Properties - Connect Thai Home</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="../css/property-list.css">
+    <link rel="stylesheet" href="../css/modal.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body style="background-color: var(--bg-light);">
+    <header class="navbar">
+        <div class="logo">
+            <a href="../index.html" style="text-decoration: none; color: inherit; display: flex; align-items: center; gap: 8px;">
+                <i class="fa-solid fa-house-chimney icon-red"></i>
+                <span>Connect Thai Home</span>
+            </a>
+        </div>
+        <nav class="nav-links">
+            <a href="../index.html">Home</a>
+            <a href="#">Buy <i class="fa-solid fa-chevron-down arrow"></i></a>
+            <a href="#">Rent <i class="fa-solid fa-chevron-down arrow"></i></a>
+            <a href="#">New Projects <i class="fa-solid fa-chevron-down arrow"></i></a>
+            <a href="#">Guides</a>
+        </nav>
+        <div class="nav-right">
+            <a href="favorites.html" class="nav-points" title="Manage Points">
+                <i class="fa-solid fa-coins"></i>
+                <span>My Point: 2</span>
+            </a>
+            <a href="favorites.html" class="nav-fav">
+                <i class="fa-solid fa-heart"></i>
+                <span>My Favorite</span>
+            </a>
+            <div class="lang-selector">
+                EN <i class="fa-solid fa-chevron-down arrow"></i>
+                <div class="lang-dropdown">
+                    <a href="#">Thai (TH)</a>
+                    <a href="#">Chinese (ZH)</a>
+                    <a href="#">Korean (KO)</a>
+                    <a href="#">Russian (RU)</a>
+                </div>
+            </div>
+            <button class="btn-login" onclick="window.location.href='login.html'">Login</button>
+        </div>
+    </header>
+
+    <div class="list-container">
+        <h1 style="margin-bottom: 2rem; font-size: 2.2rem; font-weight: 800; color: var(--text-dark);">Available Properties</h1>
+        
+        <!-- Filter Bar -->
+        <div class="filter-bar">
+            <div class="filter-group">
+                <label>Location</label>
+                <select>
+                    <option>All Locations</option>
+                    <option>Bangkok</option>
+                    <option>Pattaya</option>
+                    <option>Phuket</option>
+                    <option>Chiang Mai</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label>Property Type</label>
+                <select>
+                    <option>All Types</option>
+                    <option>Condo</option>
+                    <option>House</option>
+                    <option>Villa</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label>Room Type</label>
+                <select>
+                    <option>All Sizes</option>
+                    <option>Studio</option>
+                    <option>1 Bedroom</option>
+                    <option>2 Bedrooms</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label>Move-in After</label>
+                <input type="date">
+            </div>
+            <div class="filter-group">
+                <label>Min Rent</label>
+                <select>
+                    <option>Any</option>
+                    <option>1 Month</option>
+                    <option>6 Months</option>
+                    <option>1 Year</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label>Max Budget</label>
+                <input type="number" placeholder="฿30,000">
+            </div>
+            <button class="btn-filter-search">Search</button>
+        </div>
+
+        <!-- Property List -->
+        <div class="property-list-vertical">
+            <!-- Item 1 -->
+            <div class="property-list-item">
+                <div class="item-image">
+                    <img src="../images/modern_condo.png" alt="Property">
+                    <button class="btn-favorite" title="Add to Favorites"><i class="fa-solid fa-heart"></i></button>
+                </div>
+                <div class="item-content">
+                    <div class="item-header">
+                        <div class="item-title">Siri at Sukhumvit 24</div>
+                        <div class="item-price">฿25,000<span>/mo</span></div>
+                    </div>
+                    
+                    <div class="item-details-grid">
+                        <div class="detail-pill"><i class="fa-solid fa-building"></i> Condo</div>
+                        <div class="detail-pill"><i class="fa-solid fa-bed"></i> 1 Bedroom</div>
+                        <div class="detail-pill"><i class="fa-solid fa-wallet"></i> ฿25,000/mo</div>
+                        <div class="detail-pill"><i class="fa-solid fa-clock"></i> 1 Year Min</div>
+                        <div class="detail-pill"><i class="fa-solid fa-calendar-check"></i> April 15, 2026</div>
+                    </div>
+
+                    <div class="item-footer">
+                        <div class="item-location">
+                            <i class="fa-solid fa-location-dot"></i> Sukhumvit, Bangkok
+                            <a href="#" class="view-map-link"><i class="fa-solid fa-map-location-dot"></i> Google Maps</a>
+                        </div>
+                        <button class="btn-item-contact">Contact Owner</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 2 -->
+            <div class="property-list-item">
+                <div class="item-image">
+                    <img src="../images/studio_room.png" alt="Property">
+                    <button class="btn-favorite" title="Add to Favorites"><i class="fa-solid fa-heart"></i></button>
+                </div>
+                <div class="item-content">
+                    <div class="item-header">
+                        <div class="item-title">Seaside Studio Pattaya</div>
+                        <div class="item-price">฿15,000<span>/mo</span></div>
+                    </div>
+                    
+                    <div class="item-details-grid">
+                        <div class="detail-pill"><i class="fa-solid fa-building"></i> Studio</div>
+                        <div class="detail-pill"><i class="fa-solid fa-bed"></i> Studio Room</div>
+                        <div class="detail-pill"><i class="fa-solid fa-wallet"></i> ฿15,000/mo</div>
+                        <div class="detail-pill"><i class="fa-solid fa-clock"></i> 6 Months Min</div>
+                        <div class="detail-pill"><i class="fa-solid fa-calendar-check"></i> May 1, 2026</div>
+                    </div>
+
+                    <div class="item-footer">
+                        <div class="item-location">
+                            <i class="fa-solid fa-location-dot"></i> Pattaya City
+                            <a href="#" class="view-map-link"><i class="fa-solid fa-map-location-dot"></i> Google Maps</a>
+                        </div>
+                        <button class="btn-item-contact">Contact Owner</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 3 -->
+            <div class="property-list-item">
+                <div class="item-image">
+                    <img src="../images/condo_interior.png" alt="Property">
+                    <button class="btn-favorite" title="Add to Favorites"><i class="fa-solid fa-heart"></i></button>
+                </div>
+                <div class="item-content">
+                    <div class="item-header">
+                        <div class="item-title">Luxury Villa Phuket</div>
+                        <div class="item-price">฿45,000<span>/mo</span></div>
+                    </div>
+                    
+                    <div class="item-details-grid">
+                        <div class="detail-pill"><i class="fa-solid fa-hotel"></i> Villa</div>
+                        <div class="detail-pill"><i class="fa-solid fa-bed"></i> 3 Bedrooms</div>
+                        <div class="detail-pill"><i class="fa-solid fa-wallet"></i> ฿45,000/mo</div>
+                        <div class="detail-pill"><i class="fa-solid fa-clock"></i> 1 Year Min</div>
+                        <div class="detail-pill"><i class="fa-solid fa-calendar-check"></i> May 10, 2026</div>
+                    </div>
+
+                    <div class="item-footer">
+                        <div class="item-location">
+                            <i class="fa-solid fa-location-dot"></i> Rawai, Phuket
+                            <a href="#" class="view-map-link"><i class="fa-solid fa-map-location-dot"></i> Google Maps</a>
+                        </div>
+                        <button class="btn-item-contact">Contact Owner</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 4 -->
+            <div class="property-list-item">
+                <div class="item-image">
+                    <img src="../images/studio_room.png" alt="Property">
+                </div>
+                <div class="item-content">
+                    <div class="item-header">
+                        <div class="item-title">Modern Studio Chiang Mai</div>
+                        <div class="item-price">฿12,000<span>/mo</span></div>
+                    </div>
+                    
+                    <div class="item-details-grid">
+                        <div class="detail-pill"><i class="fa-solid fa-building"></i> Condo</div>
+                        <div class="detail-pill"><i class="fa-solid fa-bed"></i> Studio</div>
+                        <div class="detail-pill"><i class="fa-solid fa-wallet"></i> ฿12,000/mo</div>
+                        <div class="detail-pill"><i class="fa-solid fa-clock"></i> 3 Months Min</div>
+                        <div class="detail-pill"><i class="fa-solid fa-calendar-check"></i> June 1, 2026</div>
+                    </div>
+
+                    <div class="item-footer">
+                        <div class="item-location">
+                            <i class="fa-solid fa-location-dot"></i> Nimman, Chiang Mai
+                            <a href="#" class="view-map-link"><i class="fa-solid fa-map-location-dot"></i> Google Maps</a>
+                        </div>
+                        <button class="btn-item-contact">Contact Owner</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Property Detail Modal -->
+    <div id="propertyModal" class="modal-overlay">
+        <div class="modal">
+            <button class="modal-close" onclick="closeModal()"><i class="fa-solid fa-xmark"></i></button>
+            <div class="modal-content">
+                <div class="modal-image">
+                    <img src="" alt="Property Image" id="modalImg">
+                </div>
+                
+                <div class="modal-details">
+                    <div class="detail-row">
+                        <span class="detail-label">Location</span>
+                        <span class="detail-value" id="modalLocation">Bangkok, Thailand</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Room Type</span>
+                        <span class="detail-value" id="modalRoomType">Modern Condo • 1 Bedroom</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Move-in Date</span>
+                        <span class="detail-value" id="modalDate">April 15, 2026</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Min. Rental</span>
+                        <span class="detail-value" id="modalMinRent">1 Year</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Pet Friendly</span>
+                        <span class="detail-value" id="modalPet">Yes</span>
+                    </div>
+                    <div class="detail-row price-row">
+                        <span class="detail-label">Monthly Rent</span>
+                        <span class="detail-value" id="modalPrice">฿25,000</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Additional Info</span>
+                        <span class="detail-value" style="font-weight: 500;" id="modalTitle">Fully furnished, ready to move in.</span>
+                    </div>
+                </div>
+
+                <div class="modal-map">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d124016.92040941845!2d100.419106!3d13.7244416!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30e29b1aa9592ea%3A0xe53158c5c1ca520!2sSukhumvit%2C%20Bangkok%2C%20Thailand!5e0!3m2!1sen!2sus!4v1712852234000!5m2!1sen!2sus" width="100%" height="200" style="border:0; border-radius: 8px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+
+                <button class="btn-contact-modal">Contact Owner</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const modal = document.getElementById('propertyModal');
+        
+        function openModal() {
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+        
+    <div id="toast" class="toast-notification">
+        <i class="fa-solid fa-circle-check toast-icon"></i>
+        <span id="toast-message">Added to Favorites</span>
+    </div>
+
+    <script>
+        const modal = document.getElementById('propertyModal');
+
+        function openModal() {
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                closeModal();
+            }
+        }
+
+        // Attach click event to all property list items
+        const items = document.querySelectorAll('.property-list-item');
+        items.forEach(item => {
+            item.addEventListener('click', (e) => {
+                // Prevent modal if clicking the map link or contact button or favorite button directly
+                if (e.target.closest('.view-map-link') || e.target.closest('.btn-item-contact') || e.target.closest('.btn-favorite')) {
+                    return;
+                }
+
+                const imgSrc = item.querySelector('.item-image img').src;
+                const title = item.querySelector('.item-title').innerText;
+                const price = item.querySelector('.item-price').innerText.split('/')[0].trim();
+                const location = item.querySelector('.item-location').innerText.split('Google Maps')[0].trim();
+                
+                const pills = item.querySelectorAll('.detail-pill');
+                const propType = pills[0].innerText;
+                const roomType = pills[1].innerText;
+                const minRent = pills[3].innerText;
+                const moveIn = pills[4].innerText;
+                
+                document.getElementById('modalImg').src = imgSrc;
+                document.getElementById('modalTitle').innerText = title;
+                document.getElementById('modalPrice').innerText = price;
+                document.getElementById('modalLocation').innerText = location;
+                document.getElementById('modalRoomType').innerText = propType + ' • ' + roomType;
+                document.getElementById('modalMinRent').innerText = minRent;
+                document.getElementById('modalDate').innerText = moveIn;
+                document.getElementById('modalPet').innerText = location.includes('Phuket') ? 'Yes' : 'Small pets allowed';
+                
+                openModal();
+            });
+        });
+
+        // Favorite Button & Toast Logic
+        document.querySelectorAll('.btn-favorite').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                this.classList.toggle('active');
+                
+                const isAdded = this.classList.contains('active');
+                showToast(isAdded ? 'Added to Favorites' : 'Removed from Favorites');
+            });
+        });
+
+        // Contact Button & Point Logic
+        document.querySelectorAll('.btn-item-contact, .btn-contact-modal').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                showToast('Connecting... 1 Point Deducted', 'fa-solid fa-coins');
+            });
+        });
+
+        function showToast(message, iconClass = 'fa-solid fa-circle-check') {
+            const toast = document.getElementById('toast');
+            const msg = document.getElementById('toast-message');
+            const icon = toast.querySelector('.toast-icon');
+            
+            msg.innerText = message;
+            icon.className = 'toast-icon ' + iconClass;
+            
+            toast.classList.add('show');
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 2500);
+        }
+    </script>
+</body>
+</html>

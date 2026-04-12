@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find Tenants - Connect Thai Home</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="../css/tenant-list.css">
+    <link rel="stylesheet" href="../css/modal.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body style="background-color: var(--bg-light);">
+    <header class="navbar">
+        <div class="logo">
+            <a href="../index.html" style="text-decoration: none; color: inherit; display: flex; align-items: center; gap: 8px;">
+                <i class="fa-solid fa-house-chimney icon-red"></i>
+                <span>Connect Thai Home</span>
+            </a>
+        </div>
+        <nav class="nav-links">
+            <a href="../index.html">Home</a>
+            <a href="#">Buy <i class="fa-solid fa-chevron-down arrow"></i></a>
+            <a href="#">Rent <i class="fa-solid fa-chevron-down arrow"></i></a>
+            <a href="#">New Projects <i class="fa-solid fa-chevron-down arrow"></i></a>
+            <a href="#">Guides</a>
+        </nav>
+        <div class="nav-right">
+            <a href="favorites.html" class="nav-points" title="Manage Points">
+                <i class="fa-solid fa-coins"></i>
+                <span>My Point: 2</span>
+            </a>
+            <a href="favorites.html" class="nav-fav">
+                <i class="fa-solid fa-heart"></i>
+                <span>My Favorite</span>
+            </a>
+            <div class="lang-selector">
+                EN <i class="fa-solid fa-chevron-down arrow"></i>
+                <div class="lang-dropdown">
+                    <a href="#">Thai (TH)</a>
+                    <a href="#">Chinese (ZH)</a>
+                    <a href="#">Korean (KO)</a>
+                    <a href="#">Russian (RU)</a>
+                </div>
+            </div>
+            <button class="btn-login" onclick="window.location.href='login.html'">Login</button>
+        </div>
+    </header>
+
+    <div class="list-container">
+        <h1 style="margin-bottom: 2rem; font-size: 2.2rem; font-weight: 800; color: var(--text-dark);">Find Prospective Tenants</h1>
+        
+        <!-- Filter Bar -->
+        <div class="filter-bar">
+            <div class="filter-group">
+                <label>Location</label>
+                <select>
+                    <option>All Locations</option>
+                    <option>Bangkok</option>
+                    <option>Pattaya</option>
+                    <option>Phuket</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label>Property Type</label>
+                <select>
+                    <option>Any Type</option>
+                    <option>Condo</option>
+                    <option>House</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label>Room Type</label>
+                <select>
+                    <option>Any Size</option>
+                    <option>Studio</option>
+                    <option>1 Bedroom</option>
+                    <option>2+ Bedrooms</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label>Move-in Date</label>
+                <input type="date">
+            </div>
+            <div class="filter-group">
+                <label>Min Rent</label>
+                <select>
+                    <option>Any</option>
+                    <option>1-6 Months</option>
+                    <option>1 Year+</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label>Max Budget</label>
+                <input type="number" placeholder="฿20,000">
+            </div>
+            <button class="btn-filter-search">Search</button>
+        </div>
+
+        <!-- Tenant List -->
+        <div class="tenant-list-vertical">
+            <!-- Item 1 -->
+            <div class="tenant-list-item">
+                <div class="tenant-avatar">
+                    <img src="../images/avatar_1.png" alt="Tenant">
+                    <button class="btn-favorite" title="Add to Favorites"><i class="fa-solid fa-heart"></i></button>
+                </div>
+                <div class="tenant-content">
+                    <div class="tenant-header">
+                        <div class="tenant-title">Looking for 1 Bedroom in Sukhumvit</div>
+                        <div class="tenant-budget">฿35,000<span>/mo</span></div>
+                    </div>
+                    
+                    
+                    <div class="tenant-details-grid">
+                        <div class="detail-pill"><i class="fa-solid fa-location-dot"></i> Sukhumvit / Asok</div>
+                        <div class="detail-pill"><i class="fa-solid fa-building"></i> Condo</div>
+                        <div class="detail-pill"><i class="fa-solid fa-bed"></i> 1 Bedroom</div>
+                        <div class="detail-pill"><i class="fa-solid fa-calendar-days"></i> May 15, 2026</div>
+                        <div class="detail-pill"><i class="fa-solid fa-clock"></i> 1 Year +</div>
+                        <div class="detail-pill"><i class="fa-solid fa-dog-leash"></i> No Pets</div>
+                    </div>
+
+                    <div class="tenant-footer">
+                        <span style="color: #94a3b8; font-size: 0.85rem;">Posted 2 days ago</span>
+                        <button class="btn-tenant-contact">Contact</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 2 -->
+            <div class="tenant-list-item">
+                <div class="tenant-avatar">
+                    <img src="../images/avatar_2.png" alt="Tenant">
+                    <button class="btn-favorite" title="Add to Favorites"><i class="fa-solid fa-heart"></i></button>
+                </div>
+                <div class="tenant-content">
+                    <div class="tenant-header">
+                        <div class="tenant-title">Studio needed near BTS Ari</div>
+                        <div class="tenant-budget">฿18,000<span>/mo</span></div>
+                    </div>
+                    
+                    
+                    <div class="tenant-details-grid">
+                        <div class="detail-pill"><i class="fa-solid fa-location-dot"></i> Chatuchak / Ari</div>
+                        <div class="detail-pill"><i class="fa-solid fa-building"></i> Studio / Condo</div>
+                        <div class="detail-pill"><i class="fa-solid fa-bed"></i> Studio</div>
+                        <div class="detail-pill"><i class="fa-solid fa-calendar-days"></i> ASAP</div>
+                        <div class="detail-pill"><i class="fa-solid fa-clock"></i> 6 Months</div>
+                        <div class="detail-pill"><i class="fa-solid fa-paw"></i> Cat Friendly</div>
+                    </div>
+
+                    <div class="tenant-footer">
+                        <span style="color: #94a3b8; font-size: 0.85rem;">Posted 5 hours ago</span>
+                        <button class="btn-tenant-contact">Contact</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 3 -->
+            <div class="tenant-list-item">
+                <div class="tenant-avatar">
+                    <img src="../images/avatar_3.png" alt="Tenant">
+                    <button class="btn-favorite" title="Add to Favorites"><i class="fa-solid fa-heart"></i></button>
+                </div>
+                <div class="tenant-content">
+                    <div class="tenant-header">
+                        <div class="tenant-title">House or 2BR for Expat Couple</div>
+                        <div class="tenant-budget">฿65,000<span>/mo</span></div>
+                    </div>
+                    
+                    
+                    <div class="tenant-details-grid">
+                        <div class="detail-pill"><i class="fa-solid fa-location-dot"></i> Phra Khanong</div>
+                        <div class="detail-pill"><i class="fa-solid fa-house"></i> House / Condo</div>
+                        <div class="detail-pill"><i class="fa-solid fa-bed"></i> 2+ Bedrooms</div>
+                        <div class="detail-pill"><i class="fa-solid fa-calendar-days"></i> June 1, 2026</div>
+                        <div class="detail-pill"><i class="fa-solid fa-clock"></i> 1 Year +</div>
+                        <div class="detail-pill"><i class="fa-solid fa-dog"></i> Small Dog</div>
+                    </div>
+
+                    <div class="tenant-footer">
+                        <span style="color: #94a3b8; font-size: 0.85rem;">Posted 1 week ago</span>
+                        <button class="btn-tenant-contact">Contact</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 4 -->
+            <div class="tenant-list-item">
+                <div class="tenant-avatar">
+                    <img src="../images/avatar_4.png" alt="Tenant">
+                </div>
+                <div class="tenant-content">
+                    <div class="tenant-header">
+                        <div class="tenant-title">Modern 1BR near Silom Station</div>
+                        <div class="tenant-budget">฿25,000<span>/mo</span></div>
+                    </div>
+                    
+                    
+                    <div class="tenant-details-grid">
+                        <div class="detail-pill"><i class="fa-solid fa-location-dot"></i> Silom / Sathorn</div>
+                        <div class="detail-pill"><i class="fa-solid fa-building"></i> Condo</div>
+                        <div class="detail-pill"><i class="fa-solid fa-bed"></i> 1 Bedroom</div>
+                        <div class="detail-pill"><i class="fa-solid fa-calendar-days"></i> May 1, 2026</div>
+                        <div class="detail-pill"><i class="fa-solid fa-clock"></i> 1 Year</div>
+                        <div class="detail-pill"><i class="fa-solid fa-ban-smoking"></i> Non-smoker</div>
+                    </div>
+
+                    <div class="tenant-footer">
+                        <span style="color: #94a3b8; font-size: 0.85rem;">Posted 3 days ago</span>
+                        <button class="btn-tenant-contact">Contact</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tenant Detail Modal -->
+    <div id="tenantModal" class="modal-overlay">
+        <div class="modal">
+            <button class="modal-close" onclick="closeTenantModal()"><i class="fa-solid fa-xmark"></i></button>
+            <div class="modal-content">
+                <div class="modal-image">
+                    <img src="" alt="Tenant Avatar" id="tenantModalImg" style="object-position: top;">
+                </div>
+                
+                <div class="modal-details">
+                    <div class="detail-row">
+                        <span class="detail-label">Location</span>
+                        <span class="detail-value" id="tenantModalLocation">Bangkok</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Property Type</span>
+                        <span class="detail-value" id="tenantModalPropType">Condo</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Room Type</span>
+                        <span class="detail-value" id="tenantModalRoomType">1 Bedroom</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Move-in Date</span>
+                        <span class="detail-value" id="tenantModalDate">ASAP</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Pet Friendly</span>
+                        <span class="detail-value" id="tenantModalPet">No Preference</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Rent Period</span>
+                        <span class="detail-value" id="tenantModalPeriod">1 Year</span>
+                    </div>
+                    <div class="detail-row price-row">
+                        <span class="detail-label">Budget</span>
+                        <span class="detail-value" id="tenantModalBudget">฿30,000/mo</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Preferred Location</span>
+                        <span class="detail-value" style="font-weight: 500;" id="tenantModalBio">Flexible within the area.</span>
+                    </div>
+                </div>
+
+                <button class="btn-contact-modal" id="modalContactText">Contact Tenant</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const tenantModal = document.getElementById('tenantModal');
+        
+        function openTenantModal() {
+            tenantModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeTenantModal() {
+            tenantModal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        window.onclick = function(event) {
+            if (event.target == tenantModal) {
+                closeTenantModal();
+            }
+        }
+
+        // Attach click event to all tenant list items
+        const items = document.querySelectorAll('.tenant-list-item');
+        items.forEach(item => {
+            item.addEventListener('click', (e) => {
+                // Prevent modal if clicking the contact button or favorite button directly
+                if (e.target.closest('.btn-tenant-contact') || e.target.closest('.btn-favorite')) {
+                    return;
+                }
+
+                const imgSrc = item.querySelector('.tenant-avatar img').src;
+                const title = item.querySelector('.tenant-title').innerText;
+                const budget = item.querySelector('.tenant-budget').innerText.split('/')[0].trim();
+                
+                const pills = item.querySelectorAll('.detail-pill');
+                const location = pills[0].innerText;
+                const propType = pills[1].innerText;
+                const roomType = pills[2].innerText;
+                const moveIn = pills[3].innerText;
+                const period = pills[4].innerText;
+                const petPref = pills[5].innerText;
+                
+                document.getElementById('tenantModalImg').src = imgSrc;
+                document.getElementById('tenantModalLocation').innerText = location;
+                document.getElementById('tenantModalPropType').innerText = propType;
+                document.getElementById('tenantModalRoomType').innerText = roomType;
+                document.getElementById('tenantModalDate').innerText = moveIn;
+                document.getElementById('tenantModalPeriod').innerText = period;
+                document.getElementById('tenantModalPet').innerText = petPref;
+                document.getElementById('tenantModalBudget').innerText = budget;
+                document.getElementById('tenantModalBio').innerText = title; 
+                document.getElementById('modalContactText').innerText = 'Contact Tenant';
+                
+                openTenantModal();
+            });
+        });
+
+        // Contact Button & Point Logic
+        document.querySelectorAll('.btn-tenant-contact, .btn-contact-modal').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                showToast('Connecting... 1 Point Deducted', 'fa-solid fa-coins');
+            });
+        });
+
+        function showToast(message, iconClass = 'fa-solid fa-circle-check') {
+            const toast = document.getElementById('toast');
+            const msg = document.getElementById('toast-message');
+            const icon = toast.querySelector('.toast-icon');
+            
+            msg.innerText = message;
+            icon.className = 'toast-icon ' + iconClass;
+            
+            toast.classList.add('show');
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 2500);
+        }
+    </script>
+</body>
+</html>

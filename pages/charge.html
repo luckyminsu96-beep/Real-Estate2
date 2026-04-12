@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Charge Points - Connect Thai Home</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="../css/charge.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body style="background-color: var(--bg-light);">
+    <header class="navbar">
+        <div class="logo">
+            <a href="../index.html" style="text-decoration: none; color: inherit; display: flex; align-items: center; gap: 8px;">
+                <i class="fa-solid fa-house-chimney icon-red"></i>
+                <span>Connect Thai Home</span>
+            </a>
+        </div>
+        <nav class="nav-links">
+            <a href="../index.html">Home</a>
+            <a href="#">Buy <i class="fa-solid fa-chevron-down arrow"></i></a>
+            <a href="#">Rent <i class="fa-solid fa-chevron-down arrow"></i></a>
+            <a href="#">New Projects <i class="fa-solid fa-chevron-down arrow"></i></a>
+            <a href="#">Guides</a>
+        </nav>
+        <div class="nav-right">
+            <a href="favorites.html" class="nav-points" title="Manage Points">
+                <i class="fa-solid fa-coins"></i>
+                <span>My Point: 2</span>
+            </a>
+            <a href="favorites.html" class="nav-fav">
+                <i class="fa-solid fa-heart"></i>
+                <span>My Favorite</span>
+            </a>
+            <div class="lang-selector">
+                EN <i class="fa-solid fa-chevron-down arrow"></i>
+                <div class="lang-dropdown">
+                    <a href="#">Thai (TH)</a>
+                    <a href="#">Chinese (ZH)</a>
+                    <a href="#">Korean (KO)</a>
+                    <a href="#">Russian (RU)</a>
+                </div>
+            </div>
+            <button class="btn-login" onclick="window.location.href='login.html'">Login</button>
+        </div>
+    </header>
+
+    <div class="charge-container">
+        <div class="charge-header">
+            <h1>Select Your Point Package</h1>
+            <p>1 point is used to unlock owner or tenant contact information.</p>
+        </div>
+
+        <div class="pricing-grid">
+            <!-- Basic -->
+            <div class="pricing-card">
+                <div>
+                    <div class="points-value">5</div>
+                    <div class="points-label">Points</div>
+                    <div class="price-tag">$5</div>
+                    <ul class="perks-list">
+                        <li><i class="fa-solid fa-check"></i> Unlock 5 Contacts</li>
+                        <li><i class="fa-solid fa-check"></i> 30-day validity</li>
+                        <li><i class="fa-solid fa-check"></i> Email support</li>
+                    </ul>
+                </div>
+                <button class="btn-select-plan">Select Package</button>
+            </div>
+
+            <!-- Standard (Popular) -->
+            <div class="pricing-card popular">
+                <div class="popular-badge">Best Value</div>
+                <div>
+                    <div class="points-value">20</div>
+                    <div class="points-label">Points</div>
+                    <div class="price-tag">$15</div>
+                    <ul class="perks-list">
+                        <li><i class="fa-solid fa-check"></i> Unlock 20 Contacts</li>
+                        <li><i class="fa-solid fa-check"></i> <strong>Save 25%</strong></li>
+                        <li><i class="fa-solid fa-check"></i> Unlimited validity</li>
+                        <li><i class="fa-solid fa-check"></i> Priority support</li>
+                    </ul>
+                </div>
+                <button class="btn-select-plan">Select Package</button>
+            </div>
+
+            <!-- Pro -->
+            <div class="pricing-card">
+                <div>
+                    <div class="points-value">10</div>
+                    <div class="points-label">Points</div>
+                    <div class="price-tag">$10</div>
+                    <ul class="perks-list">
+                        <li><i class="fa-solid fa-check"></i> Unlock 10 Contacts</li>
+                        <li><i class="fa-solid fa-check"></i> 60-day validity</li>
+                        <li><i class="fa-solid fa-check"></i> Standard support</li>
+                    </ul>
+                </div>
+                <button class="btn-select-plan">Select Package</button>
+            </div>
+        </div>
+
+        <div class="payment-section">
+            <h2>Payment Details</h2>
+            <form id="paymentForm" onsubmit="return false;">
+                <div class="form-group">
+                    <label>Cardholder Name</label>
+                    <input type="text" placeholder="John Doe">
+                </div>
+                <div class="form-group">
+                    <label>Card Number</label>
+                    <input type="text" placeholder="**** **** **** ****">
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Expiry Date</label>
+                        <input type="text" placeholder="MM/YY">
+                    </div>
+                    <div class="form-group">
+                        <label>CVV</label>
+                        <input type="text" placeholder="***">
+                    </div>
+                </div>
+                <button type="submit" class="btn-confirm-payment" onclick="showToast('Payment Processing...', 'fa-solid fa-spinner fa-spin')">
+                    Authorize Payment
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Toast UI -->
+    <div id="toast" class="toast-notification">
+        <i class="fa-solid fa-circle-check toast-icon"></i>
+        <span id="toast-message">Added to Favorites</span>
+    </div>
+
+    <script>
+        function showToast(message, iconClass = 'fa-solid fa-circle-check') {
+            const toast = document.getElementById('toast');
+            const msg = document.getElementById('toast-message');
+            const icon = toast.querySelector('.toast-icon');
+            
+            msg.innerText = message;
+            icon.className = 'toast-icon ' + iconClass;
+            
+            toast.classList.add('show');
+            setTimeout(() => {
+                toast.classList.remove('show');
+                if (message.includes('Processing')) {
+                    setTimeout(() => {
+                        showToast('Points Charged Successfully!', 'fa-solid fa-check-double');
+                    }, 500);
+                }
+            }, 2000);
+        }
+
+        // Package selection visualization
+        document.querySelectorAll('.pricing-card').forEach(card => {
+            card.addEventListener('click', function() {
+                document.querySelectorAll('.pricing-card').forEach(c => c.style.borderColor = 'transparent');
+                this.style.borderColor = 'var(--primary-red)';
+                const points = this.querySelector('.points-value').innerText;
+                const price = this.querySelector('.price-tag').innerText;
+                document.querySelector('.btn-confirm-payment').innerText = `Pay ${price} for ${points} Points`;
+            });
+        });
+    </script>
+</body>
+</html>

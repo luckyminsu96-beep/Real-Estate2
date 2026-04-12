@@ -1,0 +1,212 @@
+/* Tenant List Page Styles */
+
+.list-container {
+    max-width: 1100px;
+    margin: 2rem auto;
+    padding: 0 1.5rem;
+}
+
+/* Filter Bar (Shared logic with Property List) */
+.filter-bar {
+    background: white;
+    padding: 1.5rem 1.2rem;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: flex-end;
+    gap: 0.8rem;
+    margin-bottom: 3rem;
+    border: 1px solid #e2e8f0;
+}
+
+.filter-group {
+    flex: 1;
+    min-width: 120px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+
+.filter-group label {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #475569;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+}
+
+.filter-group select,
+.filter-group input {
+    padding: 1rem;
+    border: 2px solid #334155;
+    border-radius: 10px;
+    font-size: 0.9rem;
+    outline: none;
+    background-color: #ffffff;
+    transition: all 0.2s;
+    color: var(--text-dark);
+    font-weight: 500;
+    width: 100%;
+}
+
+.btn-filter-search {
+    background-color: #334155;
+    color: white;
+    border: none;
+    padding: 1rem 2.5rem;
+    border-radius: 10px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s;
+    height: 52px;
+}
+
+.btn-filter-search:hover {
+    background-color: #1e293b;
+    transform: translateY(-2px);
+}
+
+/* Tenant List Item - Horizontal & Compact Avatar */
+.tenant-list-vertical {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.tenant-list-item {
+    display: flex;
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+    border: 2px solid #cbd5e1;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    padding: 1.5rem;
+    align-items: center;
+    gap: 2rem;
+}
+
+.tenant-list-item:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+    border-color: var(--primary-red);
+}
+
+.tenant-avatar {
+    width: 140px; /* Smaller than property images */
+    height: 140px;
+    flex-shrink: 0;
+    border-radius: 50%; /* Round avatar for premium feel */
+    overflow: hidden;
+    border: 4px solid #f1f5f9;
+}
+
+.tenant-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.tenant-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.tenant-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+}
+
+.tenant-title {
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: var(--text-dark);
+}
+
+.tenant-budget {
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: var(--primary-red);
+}
+
+.tenant-details-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.8rem;
+    margin-bottom: 1.2rem;
+}
+
+.detail-pill {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 0.5rem 0.8rem;
+    background: #f8fafc;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    color: #475569;
+    font-weight: 500;
+}
+
+.detail-pill i {
+    color: var(--primary-red);
+    font-size: 0.9rem;
+    width: 16px;
+    text-align: center;
+}
+
+.tenant-bio {
+    font-size: 0.95rem;
+    color: #64748b;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+    font-style: italic;
+}
+
+.tenant-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto;
+}
+
+.btn-tenant-contact {
+    background: white;
+    border: 2px solid var(--primary-red);
+    color: var(--primary-red);
+    padding: 0.6rem 1.8rem;
+    border-radius: 50px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.btn-tenant-contact:hover {
+    background: var(--primary-red);
+    color: white;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .filter-bar {
+        flex-wrap: wrap;
+    }
+    .tenant-list-item {
+        flex-direction: column;
+        text-align: center;
+        gap: 1.5rem;
+    }
+    .tenant-details-grid {
+        grid-template-columns: 1fr;
+    }
+    .tenant-header {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+    }
+}
